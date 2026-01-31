@@ -47,7 +47,9 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function init() {
+        console.log('Initializing calendar...');
         updateSidebarDate();
+        renderCalendar(); // Initialize calendar immediately
         setupEventListeners();
         loadEvents();
         fetchSpreadsheetUrl(); // スプレッドシートの場所を確認
