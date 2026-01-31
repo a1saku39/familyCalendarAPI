@@ -143,13 +143,15 @@ document.addEventListener('DOMContentLoaded', () => {
         calendarDays.innerHTML = '';
 
         let firstDayIndex = new Date(year, month, 1).getDay();
-        firstDayIndex = (firstDayIndex + 6) % 7; // Monday start
+        // 0 (Sun) -> 6, 1 (Mon) -> 0, ...
+        firstDayIndex = (firstDayIndex === 0) ? 6 : firstDayIndex - 1;
 
         const lastDay = new Date(year, month + 1, 0).getDate();
         const prevLastDay = new Date(year, month, 0).getDate();
 
         let lastDayIndex = new Date(year, month + 1, 0).getDay();
-        lastDayIndex = (lastDayIndex + 6) % 7;
+        // 0 (Sun) -> 6, 1 (Mon) -> 0...
+        lastDayIndex = (lastDayIndex === 0) ? 6 : lastDayIndex - 1;
 
         const nextDays = 7 - lastDayIndex - 1;
 
